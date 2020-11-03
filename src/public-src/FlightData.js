@@ -7,9 +7,10 @@ class FlightData extends React.Component {
 
   render() {
     return <div id="flightDataDiv">
+      {/* renders 'Loading' if data is not yet available */}
         { this.props.data === null ?
             "Loading" :
-            this.props.data
+            JSON.stringify(this.props.data)
         }
         
     </div>;

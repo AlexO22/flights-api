@@ -1,4 +1,5 @@
 const React = require('react');
+const AverageJourneyTime = require('./AverageJourneyTime.js');
 const FlightData = require('./FlightData.js');
 
 class App extends React.Component {
@@ -13,7 +14,8 @@ class App extends React.Component {
   componentDidMount() {
     fetch("/flights")
     .then((data) => {
-      let promise = data.text();
+      // change data type to object
+      let promise = data.json();
       return promise;
     })
     .then((text) => {
@@ -29,7 +31,8 @@ class App extends React.Component {
 
   render() {
     return <div>
-      <FlightData data={this.state.data}></FlightData>
+      {/* <FlightData data={this.state.data}></FlightData> */}
+      <AverageJourneyTime data={this.state.data}></AverageJourneyTime>
     </div>;
   }
 }
