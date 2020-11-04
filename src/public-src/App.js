@@ -3,6 +3,7 @@ const AverageJourneyTime = require('./AverageJourneyTime.js');
 const MostDepatures = require('./MostDepartures.js')
 const BusinessFlights = require('./BusinessFlights.js');
 const FlightsIntoSweden = require('./FlightsIntoSweden.js');
+const MostOneWayFlightsAirportdata = require('./MostOneWayFlightsAirport.js')
 
 class App extends React.Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class App extends React.Component {
       <MostDepatures data={this.state.flights} segments={this.state.segments}></MostDepatures>
       <BusinessFlights data={this.state.flights} segments={this.state.segments}></BusinessFlights>
       <FlightsIntoSweden data={this.state.flights} segments={this.state.segments}></FlightsIntoSweden>
+      <MostOneWayFlightsAirportdata data={this.state.flights}></MostOneWayFlightsAirportdata>
     </div>;
   }
 }
