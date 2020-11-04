@@ -1,7 +1,7 @@
 const React = require('react');
 const AverageJourneyTime = require('./AverageJourneyTime.js');
 const MostDepatures = require('./MostDepartures.js')
-const FlightData = require('./FlightData.js');
+const BusinessFlights = require('./BusinessFlights.js');
 
 class App extends React.Component {
   constructor(props) {
@@ -48,9 +48,10 @@ class App extends React.Component {
 
   render() {
     return <div>
-      {/* <FlightData data={this.state.data}></FlightData> */}
       <AverageJourneyTime data={this.state.flights}></AverageJourneyTime>
       <MostDepatures data={this.state.flights} segments={this.state.segments}></MostDepatures>
+      <BusinessFlights data={this.state.flights} segments={this.state.segments}></BusinessFlights>
+
     </div>;
   }
 }

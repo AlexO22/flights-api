@@ -8,6 +8,7 @@ class AverageJourneyTime extends React.Component {
     getAverageJourneyTime(data){
         relevantFlights = [];
         journeyTimes= [];
+       
         for (i = 0; i < data.length; i++){
             if (data[i].depair == "LHR" && data[i].destair == "DXB" || data[i].depair == "DXB" && data[i].destair == "LHR"){
                 relevantFlights.push(data[i]);
