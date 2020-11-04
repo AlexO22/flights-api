@@ -31,6 +31,27 @@ function getFlightsWithoutSegments(flights, segments){
     return flightsWithoutSegments;
 }
 
+//count the total number of flights
+    function countTotalFlights(flights, segments){
+
+        const flightsWithoutSegments = getFlightsWithoutSegments(flights, segments);
+
+        countOfFlightsWithoutSegments = 0;
+        countOfFlightsWithSegments = 0;
+
+        for (i=0; i < flightsWithoutSegments.length; i++){
+            countOfFlightsWithoutSegments++;
+        }
+        
+        for (i=0; i < flights.length; i++){
+            countOfFlightsWithSegments++;
+        }
+
+        totalFlightCount = countOfFlightsWithSegments + countOfFlightsWithoutSegments;
+        return totalFlightCount;
+}
+
 module.exports = {
-    getFlightsWithoutSegments: getFlightsWithoutSegments
+    getFlightsWithoutSegments: getFlightsWithoutSegments,
+    countTotalFlights: countTotalFlights
 };

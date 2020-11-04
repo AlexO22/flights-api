@@ -8,23 +8,7 @@ class BusinessFlights extends React.Component {
  
     getBusinessFlightsProportion(flights, segments){
         let flightsWithoutSegments = common.getFlightsWithoutSegments(flights, segments);
-        
-        //count the total number of flights
-        function countTotalFlights (){
-            countOfFlightsWithoutSegments = 0;
-            countOfFlightsWithSegments = 0;
-
-            for (i=0; i < flightsWithoutSegments.length; i++){
-                countOfFlightsWithoutSegments++;
-            }
-            
-            for (i=0; i < flights.length; i++){
-                countOfFlightsWithSegments++;
-            }
-
-            totalFlightCount = countOfFlightsWithSegments + countOfFlightsWithoutSegments;
-            return totalFlightCount;
-        }
+        let totalFlightCount = common.countTotalFlights(flights, segments);
 
         //count the number of business flights from 'flighdata_B_segments'
         // Loop through segments and increment count value when manchester day
@@ -39,7 +23,7 @@ class BusinessFlights extends React.Component {
             }
 
             for (i=0; i < flightsWithoutSegments.length; i++){
-                if (segments[i].outflightclass == "Business" || segments[i].inflightclass == "Business"){
+                if (flightsWithoutSegments[i].outflightclass == "Business" || flightsWithoutSegments[i].inflightclass == "Business"){
                     businessFlightCountWithoutSegments++;
                 }
             }
@@ -49,10 +33,11 @@ class BusinessFlights extends React.Component {
         }
         
         function calculateBusinessClassProportion(){
-            return totalBusinessFlightCount / totalFlightCount * 100;
+            //get percentage
+            return Math.round(totalBusinessFlightCount / totalFlightCount * 100) + "/100" 
         }
 
-        countTotalFlights();
+        common.countTotalFlights(flights, segments);
         countBusinessFlights();
         return calculateBusinessClassProportion();
   }
@@ -63,7 +48,7 @@ class BusinessFlights extends React.Component {
         return "Loading"
     } else {
       const result = this.getBusinessFlightsProportion(this.props.data, this.props.segments);
-      return <div>{result} % of all flights are business flights.</div>
+      return <div>{result} of the flights are business flights.</div>
     }
 
 
