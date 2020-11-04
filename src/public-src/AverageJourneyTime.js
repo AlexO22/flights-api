@@ -106,7 +106,7 @@ class AverageJourneyTime extends React.Component {
         {/* renders 'Loading' if data is not yet available */}
         { this.props.data === null ?
             "Loading" :
-            <div>The average journey time between LHR and DXB is {this.getAverageJourneyTime(this.props.data)}</div>
+            <div><p><i>What’s the average journey time between London Heathrow (LHR) and Dubai (DXB)?</i></p><p>The average journey time between LHR and DXB is {this.getAverageJourneyTime(this.props.data)}</p></div>
         }
         </div>;
     }

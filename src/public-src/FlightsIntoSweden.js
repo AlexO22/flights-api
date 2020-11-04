@@ -48,7 +48,7 @@ class BusinessFlights extends React.Component {
         return "Loading"
     } else {
       const result = this.getFlightsIntoSwedenPercentage(this.props.data, this.props.segments);
-      return <div>{result}% of all flights are flights flying into Sweden.</div>
+      return <div><p><i>What percentage of the total set of flights fly into Sweden?</i></p><p>{result}% of all flights are flights flying into Sweden.</p></div>
     }
   }
 }

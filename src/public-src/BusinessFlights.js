@@ -48,7 +48,7 @@ class BusinessFlights extends React.Component {
         return "Loading"
     } else {
       const result = this.getBusinessFlightsProportion(this.props.data, this.props.segments);
-      return <div>{result} of the flights are business flights.</div>
+      return <div><p><i>What proportion of the flights are business class?</i></p>{result} of the flights are business flights.</div>
     }
 
 

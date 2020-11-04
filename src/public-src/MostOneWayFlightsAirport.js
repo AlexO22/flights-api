@@ -1,8 +1,6 @@
 const React = require('react');
 const common = require('./common')
 
-//Which airport do most one way flights leave from? 
-
 class MostOneWayFlightsAirport extends React.Component {
     constructor(props) {
         super(props);
@@ -59,7 +57,7 @@ class MostOneWayFlightsAirport extends React.Component {
         return "Loading"
     } else {
       const result = this.getAirportWithMostOneWayFlights(this.props.data);
-      return <div>{result.airport} is the airport with most one way flights</div>
+      return <div> <p><i>Which airport do most one way flights leave from?</i></p> <p>{result.airport} is the airport with most one way flights</p></div>
     }
   }
 }

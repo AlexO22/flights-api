@@ -23,8 +23,8 @@ class MostDepatures extends React.Component {
             }
         }
 
-        // - loop through flights without segments
-        // - increment day when manchester day
+        // loop through flights without segments
+        // increment day when manchester day
         for (i = 0; i < flightsWithoutSegments.length; i++){
 
             if (flightsWithoutSegments[i].depair == "MAN"){
@@ -53,7 +53,7 @@ class MostDepatures extends React.Component {
           return "Loading"
       } else {
         const result = this.getMostDepartures(this.props.data, this.props.segments);
-        return <div>The day {result.date} has the most departures from Manchester.</div>
+        return <div><p><i>Which airport day has the most departures from Manchester (MAN)?</i></p> <p>The day {result.date} has the most departures from Manchester.</p></div>
       }
   }
 }

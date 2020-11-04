@@ -15,6 +15,7 @@ class App extends React.Component {
     };
   }
   
+  
   componentDidMount() {
     fetch("/flights")
     .then((data) => {

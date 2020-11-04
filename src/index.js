@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const port = process.env.PORT || 5000;
+const port = 5000;
 const app = express();
 const csv = require('csv-parser')
 const fs = require('fs')
