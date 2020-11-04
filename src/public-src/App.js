@@ -1,5 +1,6 @@
 const React = require('react');
 const AverageJourneyTime = require('./AverageJourneyTime.js');
+const MostDepatures = require('./MostDepartures.js')
 const FlightData = require('./FlightData.js');
 
 class App extends React.Component {
@@ -7,7 +8,8 @@ class App extends React.Component {
     super(props);
 
     this.state = { 
-      data: null 
+      flights: null,
+      segments: null
     };
   }
   
@@ -18,9 +20,24 @@ class App extends React.Component {
       let promise = data.json();
       return promise;
     })
-    .then((text) => {
+    .then((data) => {
       this.setState({
-          data: text
+          flights: data
+      })
+    })
+    .catch((error) => {
+      console.error("Error");
+    }); 
+
+    fetch("/segments")
+    .then((data) => {
+      // change data type to object
+      let promise = data.json();
+      return promise;
+    })
+    .then((data) => {
+      this.setState({
+          segments: data
       })
     })
     .catch((error) => {
@@ -32,7 +49,8 @@ class App extends React.Component {
   render() {
     return <div>
       {/* <FlightData data={this.state.data}></FlightData> */}
-      <AverageJourneyTime data={this.state.data}></AverageJourneyTime>
+      <AverageJourneyTime data={this.state.flights}></AverageJourneyTime>
+      <MostDepatures data={this.state.flights} segments={this.state.segments}></MostDepatures>
     </div>;
   }
 }
